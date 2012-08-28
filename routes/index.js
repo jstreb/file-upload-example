@@ -12,7 +12,6 @@ exports.index = function(req, res){
 
 exports.upload = function(req, res){
   var file;
-  console.log( req.files );
   
   if( req.files && req.files.file ){
     file = req.files.file;
@@ -23,9 +22,10 @@ exports.upload = function(req, res){
     return;
   }
   
-  console.log( file.path );
-  console.log( file.name );
-  
-  fs.renameSync(file.path, path.join( "public", "images", file.name ) );
-  res.send( {status: "success" } );
+  res.send( 
+    {
+      status: "success" 
+      fileName: file.name
+    } 
+  );
 }
