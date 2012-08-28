@@ -24,7 +24,7 @@ exports.upload = function(req, res){
   
   res.send( 
     {
-      status: "success" 
+      status: "success",
       fileName: file.name
     } 
   );
