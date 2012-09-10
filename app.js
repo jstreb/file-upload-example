@@ -15,6 +15,7 @@ app.configure(function(){
   app.set('view engine', 'jade');
   app.use(express.bodyParser());
   app.use(express.methodOverride());
+  app.use(express.logger());
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
 });
