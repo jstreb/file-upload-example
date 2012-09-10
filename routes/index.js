@@ -12,13 +12,17 @@ exports.index = function(req, res){
 
 exports.upload = function(req, res){
   var file;
-  
+  console.log( req );
   if( req.files && req.files.file ){
     file = req.files.file;
   }
   
   if( !file ) {
-    res.send( {status: "error" } );
+    res.send( 
+      { 
+        status: "error",
+        message: "No file was uploaded."
+      } );
     return;
   }
   
@@ -26,6 +30,6 @@ exports.upload = function(req, res){
     {
       status: "success",
       fileName: file.name
-    } 
+    }
   );
 }
